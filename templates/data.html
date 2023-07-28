@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Relocation Feasibility Portal using Cost of Living Data</title>
+    <link rel="stylesheet" href="{{url_for('static', filename ='bgcolor.css')}}">
+</head>
+<body>
+    <div class="container">
+        <div class="title-container">
+            <h1 class="centered-title">Relocation Feasibility Portal using Cost of Living Data</h1>
+            <img src="{{ url_for('static', filename='iu-symbol.jpg')}}" alt="University Logo" class="university-logo">
+        </div>
+
+    </div>
+
+        <div>
+            <h2 class="registration-title">Enter Your Data</h2>
+        </div>
+        <form method="POST" action="{{ url_for('data') }}">
+
+            <label for="income">Enter your Current Income:</label>
+            <input type="float" name="income" required><br>
+
+            <label for="city">Select your Current City:</label>
+            <select name="city" required>
+                {% for city in city_names %}
+                    <option value="{{ city[1] }}">{{ city[0] }}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+            <label>Please rank what is most important to you from 1-5 where 1 is your highest priority. <i>Each number should only be selected once.</i></label><br>
+            <br>
+            <label for="savings">Savings:   </label>
+            <select name="savings" id="savings"> 
+                <option value="1">1</option> 
+                <option value="2">2</option> 
+                <option value="3">3</option> 
+                <option value="4">4</option> 
+                <option value="5">5</option>
+            </select><br><br>
+            <label for="rent">Rent: </label>
+            <select name="rent" id="rent"> 
+                <option value="1">1</option> 
+                <option value="2">2</option> 
+                <option value="3">3</option> 
+                <option value="4">4</option> 
+                <option value="5">5</option>
+            </select><br><br>
+            <label for="groceries">Groceries:   </label>
+            <select name="groceries" id="groceries"> 
+                <option value="1">1</option> 
+                <option value="2">2</option> 
+                <option value="3">3</option> 
+                <option value="4">4</option> 
+                <option value="5">5</option>
+            </select><br><br>
+            <label for="restaurant">Eating Out: </label>
+            <select name="restaurant" id="restaurant"> 
+                <option value="1">1</option> 
+                <option value="2">2</option> 
+                <option value="3">3</option> 
+                <option value="4">4</option> 
+                <option value="5">5</option>
+            </select><br><br>
+            <label for="travel">Travel: </label>
+            <select name="travel" id="travel"> 
+                <option value="1">1</option> 
+                <option value="2">2</option> 
+                <option value="3">3</option> 
+                <option value="4">4</option> 
+                <option value="5">5</option>
+            </select>
+            <br><br>
+            <input type="submit" value="Submit">
+        </form>
+       
+    </div>
+    <div class="scrolling-line-container">
+        <div class="scrolling-line">For any further details, contact svujjin@iu.edu or aconeil@iu.edu or pechian@iu.edu</div>
+    </div> 
+</body>
+</html>
