@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Relocation Feasibility Portal using Cost of Living Data</title>
+    <link rel="stylesheet" href="{{url_for('static', filename ='bgcolor.css')}}">
+</head>
+<body>
+    <div class="container">
+        <div class="title-container">
+            <h1 class="centered-title">Relocation Feasibility Portal using Cost of Living Data</h1>
+            <img src="{{ url_for('static', filename='iu-symbol.jpg')}}" alt="University Logo" class="university-logo">
+        </div>
+
+    </div>
+    <div>
+        <h2 class="registration-title">Hey! Welcome to our Portal</h1>
+    </div>
+    <div>
+        <h2 class="registration-title">Sign up and find out the cost of living for different regions</h2>
+    </div>
+    <form class="register-info" action="{{ url_for('register') }}" method="post">
+        <label for="username">User Name:</label>
+        <input type="text" id="username" name="username" required><br>
+
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        
+        <button type="submit">Register</button>
+        <button type="button" onclick="window.location.href='{{ url_for('index')}}'">Cancel</button>
+        
+    </form>
+    <div class="scrolling-line-container">
+        <div class="scrolling-line">For any further details, contact svujjin@iu.edu or aconeil@iu.edu or pechian@iu.edu</div>
+    </div> 
+</body>
+</html>

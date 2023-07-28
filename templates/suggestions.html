@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Relocation Feasibility Portal using Cost of Living Data</title>
+    <link rel="stylesheet" href="{{url_for('static', filename ='bgcolor.css')}}">
+</head>
+<body>
+    <div class="container">
+        <div class="title-container">
+            <h1 class="centered-title">Relocation Feasibility Portal using Cost of Living Data</h1>
+            <img src="{{ url_for('static', filename='iu-symbol.jpg')}}" alt="University Logo" class="university-logo">
+        </div>
+
+    </div>
+    <form method="POST" action="{{ url_for('suggestions') }}">
+        <br>
+        <div>
+        <h4>Below are the 20 locations ordered by your financial priorities with cost of living indicies equal to or lower than {{ city_name }}.</h4>
+        <p><b>First Priority:</b> {{ priorities[0][0] }} | 
+            <b>Second Priority:</b> {{ priorities[1][0] }} |
+            <b>Third Priority:</b> {{ priorities[2][0] }} |
+            <b>Fourth Priority:</b> {{ priorities[3][0] }} |
+            <b>Fifth Priority:</b> {{ priorities[4][0] }}</p>
+            <div class="center-button">
+                <button type="button" class="button" onclick="window.location.href='{{ url_for('update_priorities') }}'">Reselect Priorities</button>
+            </div>
+            <br>
+        <table class="center">
+            <thead>
+                <th>Rank</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Cost of Living</th>
+                <th>Rent</th>
+                <th>COL and Rent</th>
+                <th>Groceries</th>
+                <th>Eating Out</th>
+                <th>Purchasing Power</th>
+                <th>Your Adjusted Income</th>
+            </thead>
+            {% for suggestion in suggestions %}
+            <tr>
+            {% for key, value in suggestion.items() %}
+                 <td> {{ value }} </td>
+         {% endfor %}
+        </tr>
+         {% endfor %}
+        </tbody>
+        </table>
+    <br><br><br>
+    </div>
+    </form>
+    <div class="scrolling-line-container">
+        <div class="scrolling-line">For any further details, contact svujjin@iu.edu or aconeil@iu.edu or pechian@iu.edu</div>
+    </div> 
+</body>
+</html>
